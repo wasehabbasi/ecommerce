@@ -132,3 +132,11 @@
     1. show filters
     2. create api for searching products
     3. display results
+35. Create Admin Menu
+    1. define protected route component
+    2. define admin route component
+    3. add menu for admin in header
+36. Create Dashboard Screen
+    1. create dashboard ui
+    2. implement backend api
+    3. connect ui to backend
