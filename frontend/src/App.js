@@ -1,40 +1,43 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import HomeScreen from './screen/HomeScreen';
-import ProductScreen from './screen/ProductScreen';
+import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
 import Navbar from 'react-bootstrap/Navbar';
+import Badge from 'react-bootstrap/Badge';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Badge from 'react-bootstrap/Badge';
 import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { Store } from './Store';
-import CartScreen from './screen/CartScreen';
-import SigninScreen from './screen/SigninScreen';
-import ShippingAddressScreen from './screen/ShippingAddressScreen';
-import SignupScreen from './screen/SignupScreen';
-import PaymentMethodScreen from './screen/PaymentMethodScreen';
-import PlaceOrderScreen from './screen/PlaceOrderScreen';
-import OrderScreen from './screen/OrderScreen';
-import OrderHistoryScreen from './screen/OrderHistoryScreen';
-import ProfileScreen from './screen/ProfileScreen';
+import CartScreen from './screens/CartScreen';
+import SigninScreen from './screens/SigninScreen';
+import ShippingAddressScreen from './screens/ShippingAddressScreen';
+import SignupScreen from './screens/SignupScreen';
+import PaymentMethodScreen from './screens/PaymentMethodScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderScreen from './screens/OrderScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import ProfileScreen from './screens/ProfileScreen';
 import Button from 'react-bootstrap/Button';
-import { getError } from './util';
+import { getError } from './utils';
 import axios from 'axios';
 import SearchBox from './components/SearchBox';
-import SearchScreen from './screen/SearchScreen';
+import SearchScreen from './screens/SearchScreen';
 import ProtectedRoute from './components/ProtectedRoute';
-import DashboardScreen from './screen/DashboardScreen';
+import DashboardScreen from './screens/DashboardScreen';
 import AdminRoute from './components/AdminRoute';
-import ProductListScreen from './screen/ProductListScreen';
-import ProductEditScreen from './screen/ProductEditScreen';
+import ProductListScreen from './screens/ProductListScreen';
+import ProductEditScreen from './screens/ProductEditScreen';
+import OrderListScreen from './screens/OrderListScreen';
+import UserListScreen from './screens/UserListScreen';
+import UserEditScreen from './screens/UserEditScreen';
+import MapScreen from './screens/MapScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const { cart, userInfo } = state;
+  const { fullBox, cart, userInfo } = state;
 
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
@@ -43,7 +46,6 @@ function App() {
     localStorage.removeItem('paymentMethod');
     window.location.href = '/signin';
   };
-
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
@@ -58,19 +60,22 @@ function App() {
     };
     fetchCategories();
   }, []);
-
   return (
     <BrowserRouter>
       <div
         className={
           sidebarIsOpen
-            ? 'd-flex flex-column site-container active-cont'
-            : 'd-flex flex-column site-container'
+            ? fullBox
+              ? 'site-container active-cont d-flex flex-column full-box'
+              : 'site-container active-cont d-flex flex-column'
+            : fullBox
+            ? 'site-container d-flex flex-column full-box'
+            : 'site-container d-flex flex-column'
         }
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar bg="dark" varient="dark" expand="lg">
+          <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
               <Button
                 variant="dark"
@@ -80,12 +85,12 @@ function App() {
               </Button>
 
               <LinkContainer to="/">
-                <Navbar.Brand>My App</Navbar.Brand>
+                <Navbar.Brand>amazona</Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
-                <Nav className="me-auto w-100 justify-content-end">
+                <Nav className="me-auto  w-100  justify-content-end">
                   <Link to="/cart" className="nav-link">
                     Cart
                     {cart.cartItems.length > 0 && (
@@ -136,7 +141,6 @@ function App() {
               </Navbar.Collapse>
             </Container>
           </Navbar>
-          {/* <Link to="/">mern</Link> */}
         </header>
         <div
           className={
@@ -177,6 +181,14 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route
+                path="/map"
+                element={
+                  <ProtectedRoute>
+                    <MapScreen />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route
                 path="/order/:id"
@@ -186,7 +198,6 @@ function App() {
                   </ProtectedRoute>
                 }
               ></Route>
-
               <Route
                 path="/orderhistory"
                 element={
@@ -200,11 +211,28 @@ function App() {
                 element={<ShippingAddressScreen />}
               ></Route>
               <Route path="/payment" element={<PaymentMethodScreen />}></Route>
+              {/* Admin Routes */}
               <Route
                 path="/admin/dashboard"
                 element={
                   <AdminRoute>
                     <DashboardScreen />
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
+                path="/admin/orders"
+                element={
+                  <AdminRoute>
+                    <OrderListScreen />
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
+                path="/admin/users"
+                element={
+                  <AdminRoute>
+                    <UserListScreen />
                   </AdminRoute>
                 }
               ></Route>
@@ -221,6 +249,14 @@ function App() {
                 element={
                   <AdminRoute>
                     <ProductEditScreen />
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
+                path="/admin/user/:id"
+                element={
+                  <AdminRoute>
+                    <UserEditScreen />
                   </AdminRoute>
                 }
               ></Route>
