@@ -12,10 +12,21 @@ body {
 main {
   flex: 1;
 }
+
+.header {
+  background-color: #00bd9d;
+  /* color: #ffffff; */
+}
+
+.header a {
+  color: #ffffff;
+}
+
 .btn-primary,
 .btn-outline-primary {
-  background-color: #f0c040;
-  color: #000000;
+  background-color: #00bd9d;
+  color: #ffffff;
+  border-color: unset;
 }
 .products {
   display: flex;
