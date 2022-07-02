@@ -73,8 +73,18 @@ main {
   height: 100%;
   position: absolute;
   left: -300px;
-  background-color: #100901;
+  background-color: #ffffff;
   transition: 0.5s;
+}
+
+.categories-title,
+.categories-names {
+  color: #0000008c;
+}
+
+.categories-names:hover {
+  background-color: #eaeded;
+  color: #0000008c;
 }
 
 .site-container {

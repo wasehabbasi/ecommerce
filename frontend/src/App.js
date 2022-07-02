@@ -161,7 +161,7 @@ function App() {
         >
           <Nav className="flex-column text-white w-100 p-2">
             <Nav.Item>
-              <strong>Categories</strong>
+              <strong className="categories-title">Categories</strong>
             </Nav.Item>
             {categories.map((category) => (
               <Nav.Item key={category}>
@@ -169,7 +169,9 @@ function App() {
                   to={`/search?category=${category}`}
                   onClick={() => setSidebarIsOpen(false)}
                 >
-                  <Nav.Link>{category}</Nav.Link>
+                  <Nav.Link className="categories-names">
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                  </Nav.Link>
                 </LinkContainer>
               </Nav.Item>
             ))}
