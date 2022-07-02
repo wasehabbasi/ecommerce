@@ -7,6 +7,7 @@ import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import ImageSlider from '../components/ImageSlider';
 // import data from '../data';
 
 const reducer = (state, action) => {
@@ -23,7 +24,6 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
-  console.log('home');
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
     products: [],
     loading: true,
@@ -49,6 +49,7 @@ function HomeScreen() {
       <Helmet>
         <title>Sello Mello</title>
       </Helmet>
+      <ImageSlider />
       <h1>Featured Products</h1>
       <div className="products">
         {loading ? (
