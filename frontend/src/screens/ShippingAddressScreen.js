@@ -102,7 +102,7 @@ export default function ShippingAddressScreen() {
           <Form.Group className="mb-3" controlId="country">
             <Form.Label>Country</Form.Label>
             <Form.Control
-              value="Pakistan"
+              value={country}
               onChange={(e) => setCountry(e.target.value)}
               required
             />
