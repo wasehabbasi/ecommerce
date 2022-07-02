@@ -102,12 +102,12 @@ export default function ShippingAddressScreen() {
           <Form.Group className="mb-3" controlId="country">
             <Form.Label>Country</Form.Label>
             <Form.Control
-              value={country}
+              value="Pakistan"
               onChange={(e) => setCountry(e.target.value)}
               required
             />
           </Form.Group>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <Button
               id="chooseOnMap"
               type="button"
@@ -124,7 +124,7 @@ export default function ShippingAddressScreen() {
             ) : (
               <div>No location</div>
             )}
-          </div>
+          </div> */}
 
           <div className="mb-3">
             <Button variant="primary" type="submit">

@@ -100,7 +100,17 @@ function App() {
                     )}
                   </Link>
                   {userInfo ? (
-                    <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                    <NavDropdown
+                      title={
+                        <div style={{ display: 'inline-block' }}>
+                          <i
+                            className="fa fa-user-circle"
+                            aria-hidden="true"
+                          ></i>{' '}
+                        </div>
+                      }
+                      id="basic-nav-dropdown"
+                    >
                       <LinkContainer to="/profile">
                         <NavDropdown.Item>User Profile</NavDropdown.Item>
                       </LinkContainer>
