@@ -13,9 +13,21 @@ main {
   flex: 1;
 }
 
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #404040;
+}
+
 .header {
   background-color: #00bd9d;
-  /* color: #ffffff; */
+  color: #ffffff;
+}
+
+ul {
+  list-style: none;
 }
 
 .btn-primary,
@@ -24,6 +36,19 @@ main {
   color: #ffffff;
   border-color: unset;
 }
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus {
+  color: #fff;
+  background-color: #00715d;
+  border-color: unset;
+  box-shadow: none;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -141,4 +166,8 @@ main {
 }
 button.thumbnail {
   padding: 0;
+}
+
+.card-title {
+  color: #404040;
 }
