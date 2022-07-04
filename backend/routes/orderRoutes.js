@@ -128,8 +128,11 @@ orderRouter.put(
       'email name'
     );
     if (order) {
+      console.log('paid');
       order.isPaid = true;
       order.paidAt = Date.now();
+      order.isDelivered = true;
+      order.deliveredAt = Date.now();
       order.paymentResult = {
         id: req.body.id,
         status: req.body.status,
@@ -138,25 +141,25 @@ orderRouter.put(
       };
 
       const updatedOrder = await order.save();
-      mailgun()
-        .messages()
-        .send(
-          {
-            from: 'Amazona <amazona@mg.yourdomain.com>',
-            to: `${order.user.name} <${order.user.email}>`,
-            subject: `New order ${order._id}`,
-            html: payOrderEmailTemplate(order),
-          },
-          (error, body) => {
-            if (error) {
-              console.log(error);
-            } else {
-              console.log(body);
-            }
-          }
-        );
+      // mailgun()
+      //   .messages()
+      //   .send(
+      //     {
+      //       from: 'Amazona <amazona@mg.yourdomain.com>',
+      //       to: `${order.user.name} <${order.user.email}>`,
+      //       subject: `New order ${order._id}`,
+      //       html: payOrderEmailTemplate(order),
+      //     },
+      //     (error, body) => {
+      //       if (error) {
+      //         console.log(error);
+      //       } else {
+      //         console.log(body);
+      //       }
+      //     }
+      //   );
 
-      res.send({ message: 'Order Paid', order: updatedOrder });
+      res.send({ message: 'Order Paid and Delivered', order: updatedOrder });
     } else {
       res.status(404).send({ message: 'Order Not Found' });
     }

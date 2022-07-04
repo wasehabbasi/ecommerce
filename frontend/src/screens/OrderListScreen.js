@@ -87,6 +87,26 @@ export default function OrderListScreen() {
     }
   };
 
+  const payHandler = async (order) => {
+    if (window.confirm('Are you sure this order is paid?')) {
+      try {
+        dispatch({ type: 'PAY_REQUEST' });
+        const { data } = await axios.put(
+          `/api/orders/${order._id}/pay`,
+          order,
+          {
+            headers: { authorization: `Bearer ${userInfo.token}` },
+          }
+        );
+        dispatch({ type: 'PAY_SUCCESS', payload: data });
+        toast.success('Order is paid and Delivered');
+      } catch (err) {
+        dispatch({ type: 'PAY_FAIL', payload: getError(err) });
+        toast.error(getError(err));
+      }
+    }
+  };
+
   return (
     <div>
       <Helmet>
@@ -126,6 +146,16 @@ export default function OrderListScreen() {
                     : 'No'}
                 </td>
                 <td>
+                  <Button
+                    type="button"
+                    variant="light"
+                    onClick={() => {
+                      payHandler(order);
+                    }}
+                  >
+                    paid
+                  </Button>
+                  &nbsp;
                   <Button
                     type="button"
                     variant="light"
