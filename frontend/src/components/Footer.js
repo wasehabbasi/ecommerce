@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container">
         <div className="row">
           {/* column 1 */}
-          <div className="col">
+          <div className="col-sm-4 col-xs-6">
             <h4>Customer Services</h4>
             <ul className="list-unstyled">
               <li>
@@ -24,7 +24,7 @@ export default function Footer() {
             </ul>
           </div>
           {/* column 2 */}
-          <div className="col">
+          <div className="col-sm-4 col-xs-6">
             <h4>About Us</h4>
             <ul className="list-unstyled">
               <li>
@@ -36,7 +36,7 @@ export default function Footer() {
             </ul>
           </div>
           {/* column 3 */}
-          <div className="col">
+          <div className="col-sm-4 col-xs-6">
             <h4>Download</h4>
             <ul className="list-unstyled">
               <li className="android-btn btn">
@@ -54,7 +54,7 @@ export default function Footer() {
         <div className="row">
           <p className="col-sm d-flex justify-content-center">
             &copy; {new Date().getFullYear()} Sello Mello | All rights reserved
-            | Terms of services | Privacy
+            | <a href="#"> Terms of services </a> | <a href="#"> Privacy </a>
           </p>
         </div>
       </div>
