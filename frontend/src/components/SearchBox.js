@@ -15,7 +15,7 @@ export default function SearchBox() {
 
   return (
     <Form className="d-flex me-auto" onSubmit={submitHandler}>
-      <InputGroup>
+      <InputGroup id="search-bar">
         <FormControl
           type="text"
           name="q"
