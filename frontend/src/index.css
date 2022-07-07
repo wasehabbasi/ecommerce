@@ -131,6 +131,7 @@ ul {
   height: 100vh;
   max-width: initial;
 }
+
 .full-box header,
 .full-box footer {
   display: none;
@@ -170,4 +171,22 @@ button.thumbnail {
 
 .card-title {
   color: #404040;
+  font-size: 1rem !important;
+}
+
+/* Footer */
+.main-footer {
+  background-color: #445268;
+  color: #ffffff;
+  padding-top: 3rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.main-footer a {
+  color: #ffffff !important;
+}
+
+.android-btn {
+  background-color: #3adb84;
 }
