@@ -197,3 +197,9 @@ button.thumbnail {
 .android-btn {
   background-color: #3adb84;
 }
+
+@media (max-width: 576px) {
+  #app {
+    display: none;
+  }
+}

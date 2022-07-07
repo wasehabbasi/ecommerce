@@ -36,7 +36,7 @@ export default function Footer() {
             </ul>
           </div>
           {/* column 3 */}
-          <div className="col-sm-4 col-xs-6">
+          <div className="col-sm-4 col-xs-6" id="app">
             <h4>Download</h4>
             <ul className="list-unstyled">
               <li className="android-btn btn">
