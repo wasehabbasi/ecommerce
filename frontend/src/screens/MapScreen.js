@@ -42,20 +42,23 @@ export default function MapScreen() {
       });
     }
   };
-  useEffect(() => {
-    const fetch = async () => {
-      const { data } = await axios('/api/keys/google', {
-        headers: { Authorization: `BEARER ${userInfo.token}` },
-      });
-      setGoogleApiKey(data.key);
-      getUserCurrentLocation();
-    };
+  useEffect(
+    () => {
+      const fetch = async () => {
+        const { data } = await axios('/api/keys/google', {
+          headers: { Authorization: `BEARER ${userInfo.token}` },
+        });
+        setGoogleApiKey(data.key);
+        getUserCurrentLocation();
+      };
 
-    fetch();
-    ctxDispatch({
-      type: 'SET_FULLBOX_ON',
-    });
-  }, [ctxDispatch]);
+      fetch();
+      ctxDispatch({
+        type: 'SET_FULLBOX_ON',
+      });
+    }
+    // [ctxDispatch]
+  );
 
   const onLoad = (map) => {
     mapRef.current = map;
