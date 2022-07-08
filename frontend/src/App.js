@@ -35,6 +35,9 @@ import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import MapScreen from './screens/MapScreen';
 import Footer from './components/Footer';
+import PrivacyScreen from './components/Privacy';
+import Contact from './components/Contact';
+import About from './components/About';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -224,6 +227,9 @@ function App() {
                 element={<ShippingAddressScreen />}
               ></Route>
               <Route path="/payment" element={<PaymentMethodScreen />}></Route>
+              <Route path="/privacy" element={<PrivacyScreen />}></Route>
+              <Route path="/contact" element={<Contact />}></Route>
+              <Route path="/about" element={<About />}></Route>
               {/* Admin Routes */}
               <Route
                 path="/admin/dashboard"

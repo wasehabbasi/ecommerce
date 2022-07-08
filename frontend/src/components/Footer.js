@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -10,16 +11,16 @@ export default function Footer() {
             <h4>Customer Services</h4>
             <ul className="list-unstyled">
               <li>
-                <a href="#">Help center</a>
+                <Link to={`/Contact`}>Contact Us</Link>
               </li>
-              <li>
+              {/* <li>
                 <a href="#">Report Abuse</a>
               </li>
               <li>
                 <a href="#">Submit a Dispute</a>
-              </li>
+              </li> */}
               <li>
-                <a href="#">Policies And Rules</a>
+                <Link to={`/Privacy`}> Policies And Rules</Link>
               </li>
             </ul>
           </div>
@@ -28,7 +29,7 @@ export default function Footer() {
             <h4>About Us</h4>
             <ul className="list-unstyled">
               <li>
-                <a href="#">About us</a>
+                <Link to={`/About`}> About us </Link>
               </li>
               <li>
                 <a href="#">Sitemap</a>
@@ -54,7 +55,8 @@ export default function Footer() {
         <div className="row">
           <p className="col-sm d-flex justify-content-center">
             &copy; {new Date().getFullYear()} Sello Mello | All rights reserved
-            | <a href="#"> Terms of services </a> | <a href="#"> Privacy </a>
+            | <Link to={`/Privacy`}> Terms of services </Link> |{' '}
+            <Link to={`/Privacy`}> Privacy </Link>
           </p>
         </div>
       </div>
