@@ -9,6 +9,8 @@ import { Store } from '../Store';
 function Product(props) {
   const { product } = props;
 
+  console.log(product);
+
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { cartItems },
@@ -31,6 +33,17 @@ function Product(props) {
   return (
     <Card>
       <Link to={`/product/${product.slug}`}>
+        {product.discountedPercentage === 0 ||
+        product.discountedPercentage === undefined ||
+        product.discountedPercentage === null ? (
+          <Card.Text className="discounted-percentage"> </Card.Text>
+        ) : (
+          <Card.Text className="discounted-percentage-real">
+            {' '}
+            - {product.discountedPercentage}%{' '}
+          </Card.Text>
+        )}
+
         <img src={product.image} className="card-img-top" alt={product.name} />
       </Link>
       <Card.Body>
@@ -38,7 +51,17 @@ function Product(props) {
           <Card.Title>{product.name}</Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
-        <Card.Text>Rs. {product.price}</Card.Text>
+        {product.discountedPrice === 0 ||
+        product.discountedPrice === undefined ||
+        product.discountedPrice === null ? (
+          <Card.Text>Rs. {product.price}</Card.Text>
+        ) : (
+          <Card.Text>
+            <del id="real-price">Rs. {product.price}</del> Rs.{' '}
+            {product.discountedPrice}
+            <br />
+          </Card.Text>
+        )}
         {product.countInStock === 0 ? (
           <Button variant="light" disabled>
             Out of stock

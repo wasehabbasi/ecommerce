@@ -20,6 +20,8 @@ productRouter.post(
       slug: 'sample-name-' + Date.now(),
       image: '/images/p1.jpg',
       price: 0,
+      discountedPrice: 0,
+      discountedPercentage: 0,
       category: 'sample category',
       brand: 'sample brand',
       countInStock: 0,
@@ -43,6 +45,8 @@ productRouter.put(
       product.name = req.body.name;
       product.slug = req.body.slug;
       product.price = req.body.price;
+      product.discountedPrice = req.body.discountedPrice;
+      product.discountedPercentage = req.body.discountedPercentage;
       product.image = req.body.image;
       product.images = req.body.images;
       product.category = req.body.category;

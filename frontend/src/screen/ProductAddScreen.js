@@ -168,8 +168,16 @@ export default function ProductAddScreen() {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="name">
+          <Form.Group className="mb-3" controlId="price">
             <Form.Label>Price</Form.Label>
+            <Form.Control
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="dprice">
+            <Form.Label>Discounted price</Form.Label>
             <Form.Control
               value={price}
               onChange={(e) => setPrice(e.target.value)}

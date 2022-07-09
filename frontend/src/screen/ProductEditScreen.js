@@ -55,6 +55,8 @@ export default function ProductEditScreen() {
   const [name, setName] = useState('');
   const [slug, setSlug] = useState('');
   const [price, setPrice] = useState('');
+  const [discountedPrice, setDPrice] = useState('');
+  const [discountedPercentage, setDiscountedPercentage] = useState('');
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
   const [countInStock, setCountInStock] = useState('');
@@ -69,6 +71,8 @@ export default function ProductEditScreen() {
         setName(data.name);
         setSlug(data.slug);
         setPrice(data.price);
+        setDPrice(data.discountedPrice);
+        setDiscountedPercentage(data.setDiscountedPercentage);
         setImage(data.image);
         setCategory(data.category);
         setCountInStock(data.countInStock);
@@ -96,6 +100,8 @@ export default function ProductEditScreen() {
           name,
           slug,
           price,
+          discountedPrice,
+          discountedPercentage,
           image,
           category,
           brand,
@@ -168,11 +174,27 @@ export default function ProductEditScreen() {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="name">
+          <Form.Group className="mb-3" controlId="price">
             <Form.Label>Price</Form.Label>
             <Form.Control
               value={price}
               onChange={(e) => setPrice(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="dprice">
+            <Form.Label>Discounted Price</Form.Label>
+            <Form.Control
+              value={discountedPrice}
+              onChange={(e) => setDPrice(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="discountedpercentage">
+            <Form.Label>Discounted Percentage</Form.Label>
+            <Form.Control
+              value={discountedPercentage}
+              onChange={(e) => setDiscountedPercentage(e.target.value)}
               required
             />
           </Form.Group>
