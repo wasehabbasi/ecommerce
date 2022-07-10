@@ -39,6 +39,7 @@ export default function PlaceOrderScreen() {
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.2345 => 123.23
   // console.log(cart.cartItems[0]);
   if (
+    cart.cartItems ||
     cart.cartItems[0].discountedPrice === 0 ||
     cart.cartItems[0].discountedPrice === undefined ||
     cart.cartItems[0].discountedPrice === null

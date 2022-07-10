@@ -83,6 +83,7 @@ function App() {
             <Container>
               <Button
                 className="header"
+                id="header-button-bars"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
                 <i className="fas fa-bars"></i>

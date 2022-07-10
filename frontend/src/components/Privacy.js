@@ -10,7 +10,7 @@ function PrivacyScreen() {
         learn more, please read this Privacy Policy.
       </p>
       <ol>
-        <li>
+        {/* <li>
           This Privacy Policy explains how we collect, use and (under certain
           conditions) disclose your personal information. This Privacy Policy
           also explains the steps we have taken to secure your personal
@@ -18,7 +18,7 @@ function PrivacyScreen() {
           regarding the collection, use and disclosure of your personal
           information. By visiting the Site directly or through another site,
           you accept the practices described in this Policy.
-        </li>
+        </li> */}
         <br />
         <li>
           Data protection is a matter of trust and your privacy is important to

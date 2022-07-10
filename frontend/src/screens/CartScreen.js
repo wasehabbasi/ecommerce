@@ -112,7 +112,8 @@ export default function CartScreen() {
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  {cartItems[0].discountedPrice === 0 ||
+                  {cartItems ||
+                  cartItems[0].discountedPrice === 0 ||
                   cartItems[0].discountedPrice === undefined ||
                   cartItems[0].discountedPrice === null ? (
                     <h3>

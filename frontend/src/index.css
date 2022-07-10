@@ -8,7 +8,9 @@ body {
 }
 
 .navbar-light .navbar-brand:focus,
-.navbar-light .navbar-brand:hover {
+.navbar-light .navbar-brand:hover,
+.navbar-light .navbar-brand,
+.navbar-light .navbar-brand {
   color: #fff;
   opacity: 0.9;
 }
@@ -184,6 +186,9 @@ button.thumbnail {
 @media (max-width: 576px) {
   #search-bar {
     margin-top: 20px;
+  }
+  #header-button-bars {
+    display: none;
   }
 }
 
