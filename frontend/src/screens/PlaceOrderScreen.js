@@ -37,9 +37,21 @@ export default function PlaceOrderScreen() {
   const { cart, userInfo } = state;
 
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.2345 => 123.23
-  cart.itemsPrice = round2(
-    cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
-  );
+  // console.log(cart.cartItems[0]);
+  if (
+    cart.cartItems[0].discountedPrice === 0 ||
+    cart.cartItems[0].discountedPrice === undefined ||
+    cart.cartItems[0].discountedPrice === null
+  ) {
+    cart.itemsPrice = round2(
+      cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
+    );
+  } else {
+    cart.itemsPrice = round2(
+      cart.cartItems.reduce((a, c) => a + c.quantity * c.discountedPrice, 0)
+    );
+  }
+
   cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
   cart.taxPrice = 0;
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
@@ -131,7 +143,13 @@ export default function PlaceOrderScreen() {
                       <Col md={3}>
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={3}>Rs. {item.price}</Col>
+                      {item.discountedPrice === 0 ||
+                      item.discountedPrice === undefined ||
+                      item.discountedPrice === null ? (
+                        <Col md={3}>Rs. {item.price}</Col>
+                      ) : (
+                        <Col md={3}>Rs. {item.discountedPrice}</Col>
+                      )}
                     </Row>
                   </ListGroup.Item>
                 ))}

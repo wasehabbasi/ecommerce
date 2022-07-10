@@ -54,8 +54,8 @@ export default function Footer() {
         <hr />
         <div className="row">
           <p className="col-sm d-flex justify-content-center">
-            &copy; {new Date().getFullYear()} Sello Mello | All rights reserved
-            | <Link to={`/Privacy`}> Terms of services </Link> |{' '}
+            &copy; {new Date().getFullYear()} flicky | All rights reserved |{' '}
+            <Link to={`/Privacy`}> Terms of services </Link> |{' '}
             <Link to={`/Privacy`}> Privacy </Link>
           </p>
         </div>

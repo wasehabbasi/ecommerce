@@ -187,6 +187,7 @@ export default function ProductEditScreen() {
             <Form.Control
               value={discountedPrice}
               onChange={(e) => setDPrice(e.target.value)}
+              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="discountedpercentage">
@@ -194,6 +195,7 @@ export default function ProductEditScreen() {
             <Form.Control
               value={discountedPercentage}
               onChange={(e) => setDiscountedPercentage(e.target.value)}
+              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="image">

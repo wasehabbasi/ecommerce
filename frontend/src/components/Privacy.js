@@ -5,9 +5,9 @@ function PrivacyScreen() {
     <div className="Container">
       <h1>Privacy Policy</h1>
       <p>
-        Welcome to the Sello Mello website (the “Site”) operated by Sello Mello.
-        We respect your privacy and want to protect your personal information.
-        To learn more, please read this Privacy Policy.
+        Welcome to the flicky website (the “Site”) operated by flicky. We
+        respect your privacy and want to protect your personal information. To
+        learn more, please read this Privacy Policy.
       </p>
       <ol>
         <li>

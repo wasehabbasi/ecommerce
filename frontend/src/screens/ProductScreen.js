@@ -145,7 +145,17 @@ function ProductScreen() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Price : Rs. {product.price}</ListGroup.Item>
+            {product.discountedPrice === 0 ||
+            product.discountedPrice === undefined ||
+            product.discountedPrice === null ? (
+              <ListGroup.Item>Price : Rs. {product.price}</ListGroup.Item>
+            ) : (
+              <ListGroup.Item>
+                Price : <del id="real-price">Rs. {product.price}</del> Rs.{' '}
+                {product.discountedPrice}
+              </ListGroup.Item>
+            )}
+            {/* <ListGroup.Item>Price : Rs. {product.price}</ListGroup.Item> */}
             <ListGroup.Item>
               <Row xs={3} md={3} className="g-2">
                 {[product.image, ...product.images].map((x) => (
@@ -177,7 +187,16 @@ function ProductScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col>Rs. {product.price}</Col>
+                    {product.discountedPrice === 0 ||
+                    product.discountedPrice === undefined ||
+                    product.discountedPrice === null ? (
+                      <Col>Rs. {product.price}</Col>
+                    ) : (
+                      <Col>
+                        <del id="real-price">Rs. {product.price}</del>
+                        <br /> Rs. {product.discountedPrice}
+                      </Col>
+                    )}
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>

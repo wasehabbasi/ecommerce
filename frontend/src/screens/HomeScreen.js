@@ -47,7 +47,7 @@ function HomeScreen() {
   return (
     <div>
       <Helmet>
-        <title>Sello Mello</title>
+        <title>flicky</title>
       </Helmet>
       <ImageSlider />
       <h1>Featured Products</h1>

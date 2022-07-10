@@ -82,7 +82,17 @@ export default function CartScreen() {
                         <i className="fas fa-plus-circle"></i>
                       </Button>
                     </Col>
-                    <Col md={3}>${item.price}</Col>
+                    {item.discountedPrice === 0 ||
+                    item.discountedPrice === undefined ||
+                    item.discountedPrice === null ? (
+                      <Col md={3}>Rs. {item.price}</Col>
+                    ) : (
+                      <Col md={3}>
+                        <del id="real-price">Rs. {item.price}</del> Rs.{' '}
+                        {item.discountedPrice}
+                      </Col>
+                    )}
+                    {/* <Col md={3}>${item.price}</Col> */}
                     <Col md={2}>
                       <Button
                         onClick={() => removeItemHandler(item)}
@@ -102,11 +112,24 @@ export default function CartScreen() {
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <h3>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                    items) : Rs.
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
-                  </h3>
+                  {cartItems[0].discountedPrice === 0 ||
+                  cartItems[0].discountedPrice === undefined ||
+                  cartItems[0].discountedPrice === null ? (
+                    <h3>
+                      Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
+                      items) : Rs.
+                      {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+                    </h3>
+                  ) : (
+                    <h3>
+                      Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
+                      items) : Rs.
+                      {cartItems.reduce(
+                        (a, c) => a + c.discountedPrice * c.quantity,
+                        0
+                      )}
+                    </h3>
+                  )}
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <div className="d-grid">
