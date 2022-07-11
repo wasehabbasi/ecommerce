@@ -271,7 +271,8 @@ button.thumbnail {
   }
 }
 
-i,
+i.fa-shopping-cart,
+i.fa-user-circle,
 #basic-nav-dropdown,
 #admin-nav-dropdown {
   color: #fff;
