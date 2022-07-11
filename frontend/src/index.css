@@ -241,7 +241,7 @@ button.thumbnail {
 
 @media (min-width: 400px) and (max-width: 576px) {
   .discounted-percentage-real.card-text {
-    position: absolute;
+    /* position: absolute;
     background: #004a75;
     color: #fff;
     padding: 3px;
@@ -251,11 +251,23 @@ button.thumbnail {
     padding-top: 8px;
     margin-top: 1%;
     margin-left: 1%;
+    font-size: 8px; */
+    position: absolute;
+    background: #004a75;
+    color: #fff;
+    padding: 7px;
+    padding-top: 7px;
+    border-radius: 100%;
+    width: 9%;
+    height: 7%;
+    padding-top: 12px;
+    margin-top: 1%;
+    margin-left: 1%;
     font-size: 8px;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 403px) {
   .discounted-percentage-real.card-text {
     position: absolute;
     background: #004a75;
@@ -264,8 +276,8 @@ button.thumbnail {
     padding-top: 8px;
     padding-top: 10px;
     border-radius: 100%;
-    width: 30%;
-    height: 13%;
+    width: 14%;
+    height: 10%;
     top: 32;
     padding-top: 19px;
     margin-top: 1%;
@@ -279,7 +291,8 @@ i.fa-user-circle,
 i.fa-bars,
 a.nav-link,
 #basic-nav-dropdown,
-#admin-nav-dropdown {
+#admin-nav-dropdown,
+.mx-1.text-bold.btn.btn-light {
   color: #fff !important;
 }
 
