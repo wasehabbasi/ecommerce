@@ -286,4 +286,5 @@ a.nav-link,
 
 .navbar-light .navbar-toggler {
   border-color: transparent !important;
+  color: #fff !important;
 }
