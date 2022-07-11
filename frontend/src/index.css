@@ -30,7 +30,7 @@ a:active {
 }
 
 .header {
-  background-color: #00bd9d;
+  background-color: #236084;
   color: #ffffff;
 }
 
@@ -40,7 +40,7 @@ ul {
 
 .btn-primary,
 .btn-outline-primary {
-  background-color: #00bd9d;
+  background-color: #236084;
   color: #ffffff;
   border-color: unset;
 }
@@ -52,7 +52,7 @@ ul {
 .btn-outline-primary:active,
 .btn-outline-primary:focus {
   color: #fff;
-  background-color: #00715d;
+  background-color: #004a75;
   border-color: unset;
   box-shadow: none;
 }
@@ -213,7 +213,7 @@ button.thumbnail {
 }
 .discounted-percentage-real.card-text {
   position: absolute;
-  background: #00715d;
+  background: #004a75;
   color: #fff;
   padding: 10px;
   padding-top: 10px;
@@ -239,7 +239,7 @@ button.thumbnail {
 @media (min-width: 400px) and (max-width: 576px) {
   .discounted-percentage-real.card-text {
     position: absolute;
-    background: #00715d;
+    background: #004a75;
     color: #fff;
     padding: 3px;
     border-radius: 100%;
@@ -255,7 +255,7 @@ button.thumbnail {
 @media (max-width: 400px) {
   .discounted-percentage-real.card-text {
     position: absolute;
-    background: #00715d;
+    background: #004a75;
     color: #fff;
     padding: 8px;
     padding-top: 8px;
@@ -269,4 +269,10 @@ button.thumbnail {
     margin-left: 1%;
     font-size: 11px;
   }
+}
+
+i,
+#basic-nav-dropdown,
+#admin-nav-dropdown {
+  color: #fff;
 }
