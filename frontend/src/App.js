@@ -95,7 +95,9 @@ function App() {
                   Flicky
                 </Navbar.Brand>
               </LinkContainer>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Toggle aria-controls="basic-navbar-nav" varient="dark">
+                <i class="fas fa-bars"></i>
+              </Navbar.Toggle>
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
                 <Nav className="me-auto  w-100  justify-content-end">

@@ -276,8 +276,13 @@ button.thumbnail {
 
 i.fa-shopping-cart,
 i.fa-user-circle,
+i.fa-bars,
 a.nav-link,
 #basic-nav-dropdown,
 #admin-nav-dropdown {
   color: #fff !important;
+}
+
+.navbar-light .navbar-toggler {
+  border-color: #fff;
 }
