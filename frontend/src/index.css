@@ -46,7 +46,10 @@ ul {
 }
 
 .btn-primary:hover,
-.btn-primary:active,
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:active .btn-primary:active,
 .btn-primary:focus,
 .btn-outline-primary:hover,
 .btn-outline-primary:active,

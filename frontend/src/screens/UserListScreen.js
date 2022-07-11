@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
+import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
@@ -100,19 +101,21 @@ export default function UserListScreen() {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
+        <Table className="table" striped bordered hover>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
-              <th>IS ADMIN</th>
-              <th>ACTIONS</th>
+              <th className="text-center">#</th>
+              <th className="text-center">ID</th>
+              <th className="text-center">NAME</th>
+              <th className="text-center">EMAIL</th>
+              <th className="text-center">IS ADMIN</th>
+              <th className="text-center">ACTIONS</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
+            {users.map((user, i) => (
               <tr key={user._id}>
+                <td>{i++}</td>
                 <td>{user._id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
@@ -137,7 +140,7 @@ export default function UserListScreen() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       )}
     </div>
   );

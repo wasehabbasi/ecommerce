@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
+import Table from 'react-bootstrap/Table';
 import { toast } from 'react-toastify';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
@@ -119,21 +120,23 @@ export default function OrderListScreen() {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
+        <Table className="table" striped bordered hover>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>USER</th>
-              <th>DATE</th>
-              <th>TOTAL</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
-              <th>ACTIONS</th>
+              <th className="text-center">#</th>
+              <th className="text-center">ID</th>
+              <th className="text-center">USER</th>
+              <th className="text-center">DATE</th>
+              <th className="text-center">TOTAL</th>
+              <th className="text-center">PAID</th>
+              <th className="text-center">DELIVERED</th>
+              <th className="text-center">ACTIONS</th>
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
+            {orders.map((order, i) => (
               <tr key={order._id}>
+                <td>{i++}</td>
                 <td>{order._id}</td>
                 <td>{order.user ? order.user.name : 'DELETED USER'}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
@@ -177,7 +180,7 @@ export default function OrderListScreen() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       )}
     </div>
   );

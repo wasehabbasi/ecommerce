@@ -9,6 +9,7 @@ import { Store } from '../Store';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
+import Table from 'react-bootstrap/Table';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -159,20 +160,22 @@ export default function ProductListScreen() {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <>
-          <table className="table">
+          <Table className="table" striped bordered hover>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
-                <th>ACTIONS</th>
+                <th className="text-center">#</th>
+                <th className="text-center">ID</th>
+                <th className="text-center">NAME</th>
+                <th className="text-center">PRICE</th>
+                <th className="text-center">CATEGORY</th>
+                <th className="text-center">BRAND</th>
+                <th className="text-center">ACTIONS</th>
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {products.map((product, i) => (
                 <tr key={product._id}>
+                  <td>{i++}</td>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
@@ -198,7 +201,7 @@ export default function ProductListScreen() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </Table>
           <div>
             {[...Array(pages).keys()].map((x) => (
               <Link
