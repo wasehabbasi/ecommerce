@@ -31,9 +31,9 @@ export default function Footer() {
               <li>
                 <Link to={`/About`}> About us </Link>
               </li>
-              <li>
+              {/* <li>
                 <a href="#">Sitemap</a>
-              </li>
+              </li> */}
             </ul>
           </div>
           {/* column 3 */}
