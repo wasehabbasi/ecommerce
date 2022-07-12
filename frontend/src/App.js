@@ -96,7 +96,7 @@ function App() {
                 </Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" varient="dark">
-                <i class="fas fa-bars"></i>
+                <i className="fas fa-bars"></i>
               </Navbar.Toggle>
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />

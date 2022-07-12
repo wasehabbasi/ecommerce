@@ -7,6 +7,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.me-auto {
+  margin-right: auto !important;
+  width: 100%;
+  justify-content: center;
+  display: contents;
+}
+
+.categories-names.nav-link {
+  color: #000000 !important;
+}
+
 .navbar-light .navbar-brand:focus,
 .navbar-light .navbar-brand:hover,
 .navbar-light .navbar-brand,
