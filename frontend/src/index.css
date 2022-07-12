@@ -299,3 +299,7 @@ a.nav-link,
   border-color: #fff !important;
   color: transparent !important;
 }
+
+.btn.text-bold {
+  color: #fff;
+}
