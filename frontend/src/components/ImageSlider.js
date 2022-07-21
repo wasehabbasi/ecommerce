@@ -6,7 +6,7 @@ function ImageSlider() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="/images/hero_1.png"
+          src="/images/Flicky.png"
           alt="First slide"
         />
         {/* <Carousel.Caption>
