@@ -63,7 +63,7 @@ function HomeScreen() {
                 key={product.slug}
                 sm={6}
                 md={4}
-                lg={4}
+                lg={3}
                 xs={6}
                 className="mb-3"
               >
